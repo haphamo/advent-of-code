@@ -122,8 +122,21 @@ const inputData = [
 
 // create a function that takes a mass and returns the fuel amount
 
-const fuelCalculator = function(mass) {
+const singleFuelCalculator = function(mass) {
   return (Math.floor(mass/3) - 2)
 }
 
-console.log(fuelCalculator(130762))
+//console.log(singleFuelCalculator(130762))
+
+// create a function that takes an array of masses and returns the fuel amount
+
+const fuelCalculator = function(arr) {
+  let sum = 0;
+  for (const fuel of arr) {
+    sum += singleFuelCalculator(fuel)
+    //console.log(singleFuelCalculator(fuel))
+  }
+  return sum
+}
+
+console.log(fuelCalculator([12,15,18]))

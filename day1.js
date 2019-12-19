@@ -139,4 +139,4 @@ const fuelCalculator = function(arr) {
   return sum
 }
 
-console.log(fuelCalculator([12,15,18]))
+console.log(fuelCalculator(inputData))

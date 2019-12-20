@@ -6,9 +6,15 @@ const sampleData = [1,0,0,0,99]
 // create a function that processes one line of opcode
 
 const opcode1 = function (arr){ 
-  // case 1: 0 index value is 1(add)
-  if (arr[0] === 1) {
-    arr[arr[3]] = arr[arr[1]] + arr[arr[2]]
+  switch (arr[0]) {
+    case 1: 
+      arr[arr[3]] = arr[arr[1]] + arr[arr[2]]
+      break
+    case 2:
+      arr[arr[3]] = arr[arr[1]] * arr[arr[2]]
+      break
+    case 3:
+      break
   }
   return arr
 }

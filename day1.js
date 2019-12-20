@@ -131,7 +131,7 @@ const singleFuelCalculator = function(mass) {
 // create a function that takes an array of masses and returns the fuel amount
 
 const fuelCalculator = function(arr) {
-  let sum = 0;
+  let sum = 0
   for (const fuel of arr) {
     sum += singleFuelCalculator(fuel)
     //console.log(singleFuelCalculator(fuel))
@@ -143,18 +143,25 @@ const fuelCalculator = function(arr) {
 
 // Part Two
 
-// recusion ?
-
-const fuelCalculator2 = function(mass){
-  let sum = 0;
+const singleRecursiveFuelCalculator = function(mass){
+  let sum = 0
   //base case
   if (singleFuelCalculator(mass) < 0) {
     return sum
   } else {
     sum += singleFuelCalculator(mass)
-    return sum + fuelCalculator2(singleFuelCalculator(mass))
+    return sum + singleRecursiveFuelCalculator(singleFuelCalculator(mass))
   }
-
 }
 
-console.log(fuelCalculator2(1969));
+//console.log(singleRecursiveFuelCalculator(1969));
+
+const recursiveFuelCalculator = function(arr) {
+  let sum = 0
+  for (const fuel of arr) {
+    sum += singleRecursiveFuelCalculator(fuel)
+  }
+  return sum
+}
+
+console.log(recursiveFuelCalculator(inputData))

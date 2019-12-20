@@ -139,4 +139,22 @@ const fuelCalculator = function(arr) {
   return sum
 }
 
-console.log(fuelCalculator(inputData))
+//console.log(fuelCalculator(inputData))
+
+// Part Two
+
+// recusion ?
+
+const fuelCalculator2 = function(mass){
+  let sum = 0;
+  //base case
+  if (singleFuelCalculator(mass) < 0) {
+    return sum
+  } else {
+    sum += singleFuelCalculator(mass)
+    return sum + fuelCalculator2(singleFuelCalculator(mass))
+  }
+
+}
+
+console.log(fuelCalculator2(1969));

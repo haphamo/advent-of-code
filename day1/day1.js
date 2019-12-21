@@ -3,6 +3,7 @@ const fs = require('fs')
 fs.readFile('input-data.txt','utf-8', (err, data) => { 
   if (err) throw err; 
   let inputData = data.split('\n')
+  console.log(fuelCalculator(inputData)); 
   console.log(recursiveFuelCalculator(inputData)); 
 }) 
 
@@ -10,8 +11,6 @@ fs.readFile('input-data.txt','utf-8', (err, data) => {
 const singleFuelCalculator = function(mass) {
   return (Math.floor(mass/3) - 2)
 }
-
-//console.log(singleFuelCalculator(130762))
 
 // create a function that takes an array of masses and returns the fuel amount
 const fuelCalculator = function(arr) {
@@ -22,8 +21,6 @@ const fuelCalculator = function(arr) {
   }
   return sum
 }
-
-//console.log(fuelCalculator(inputData))
 
 // Part Two
 
@@ -37,8 +34,6 @@ const singleRecursiveFuelCalculator = function(mass){
     return sum + singleRecursiveFuelCalculator(singleFuelCalculator(mass))
   }
 }
-
-//console.log(singleRecursiveFuelCalculator(1969));
 
 const recursiveFuelCalculator = function(arr) {
   let sum = 0

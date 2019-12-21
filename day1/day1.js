@@ -17,7 +17,6 @@ const fuelCalculator = function(arr) {
   let sum = 0
   for (const fuel of arr) {
     sum += singleFuelCalculator(fuel)
-    //console.log(singleFuelCalculator(fuel))
   }
   return sum
 }

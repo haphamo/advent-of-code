@@ -5,22 +5,29 @@ const testwire1 = ['R8','U5','L5','D3']
 const testwire2 = ['U7','R6','D4','L4']
 
 let coords = {x: 0, y: 0}
-// Keep track of matching coords
 let intersectingCoords = []
-// increment by 1
-// my function moves by 1 and by how much
 
 const wireCoords = function(distance){
+
+  initial = coords.x
+  amount = parseInt(distance.slice(1))
+  
   if (distance[0] === 'R'){
-    amount = distance.slice(1)
-    for(let step = coords.x; step < parseInt(amount)+1; step++){
-      console.log('Step:', step)
+    for (let step = coords.x; step < (amount + initial); step++){
+      coords.x += 1 
+      console.log(coords)
     }
-    coords.x = amount
-    return coords
+  }
+  if (distance[0] === 'L'){
+    for (let step = coords.x; step > (-amount); step--){
+      coords.x -= 1 
+      console.log(coords)
+    }
   }
 }
-console.log(wireCoords('R8'))
+wireCoords('L2')
+
+
 // Start (0,0)
 // R8: (8, 0), (0, 7)
 // U5: (8, 5), (6, 7)

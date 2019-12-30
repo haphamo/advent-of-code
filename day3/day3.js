@@ -8,26 +8,60 @@ let coords = {x: 0, y: 0}
 let intersectingCoords = []
 
 const wireCoords = function(distance){
-
-  initial = coords.x
   amount = parseInt(distance.slice(1))
+  switch (distance[0]) {
+    case 'R':
+      for (let step = 0; step < (amount); step++){
+        coords.x += 1 
+        console.log(coords)
+      }
+      break
+    case 'L':
+      for (let step = 0; step > (-amount ); step--){
+        coords.x -= 1 
+        console.log(coords)
+      }
+      break
+    case 'U':
+      for (let step = 0; step < (amount); step++){
+        coords.y += 1 
+        console.log(coords)
+      }
+      break
+    case 'D':
+      for (let step = 0; step > (-amount); step--){
+        coords.y -= 1 
+        console.log(coords)
+      }
+      break
+  }
+  // } else if (distance[0] === 'U'){
+  //   for (let step = coords.y; step < (amount + initial); step++){
+  //     coords.y += 1 
+  //     console.log(coords)
+  //   }
+  // } else if(distance[0] === 'L'){
+  //   for (let step = coords.x; step > (-amount); step--){
+  //     coords.x -= 1 
+  //     console.log(coords)
+  //   }
+  // } else if (distance[0] === 'D'){
+  //   for (let step = coords.y; step > (-amount); step--){
+  //     coords.y -= 1 
+  //     console.log(coords)
+  //   }
+  // }
   
-  if (distance[0] === 'R'){
-    for (let step = coords.x; step < (amount + initial); step++){
-      coords.x += 1 
-      console.log(coords)
-    }
-  }
-  if (distance[0] === 'L'){
-    for (let step = coords.x; step > (-amount); step--){
-      coords.x -= 1 
-      console.log(coords)
-    }
-  }
 }
-wireCoords('L2')
+// wireCoords('D2')
 
+const wireCoordsArr = function(arr) {
+  arr.forEach(move => {
+    wireCoords(move)
+  });
+}
 
+wireCoordsArr(testwire2)
 // Start (0,0)
 // R8: (8, 0), (0, 7)
 // U5: (8, 5), (6, 7)

@@ -17,7 +17,7 @@ const wireCoords = function(distance){
     case 'R':
       for (let step = 0; step < (amount); step++){
         coords.x = coords.x + 1
-        
+
         testArr.push(coords)
         console.log(testArr)
       }
@@ -53,6 +53,3 @@ const wireCoordsArr = function(wire1) {
   // });
 }
 // wireCoordsArr(testwire1)
-
-
-

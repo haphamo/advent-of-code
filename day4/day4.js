@@ -5,19 +5,23 @@ const puzzleInput = 109165-576723
 // Two adjacent digits are the same (like 22 in 122345).
 // Going from left to right, the digits never decrease; they only ever increase or stay the same (like 111123 or 135679)
 
-// create a function that returns a number in a given array
-// return 6 random values in array instead of 1
-
 let result = []
+let allPossibilities = []
 const numberInArray = function(arr) {
-  for (let i = 0; i < 6; i++){
+  const lengthOfCode = 6
+  for (let i = 0; i < lengthOfCode; i++){
     let index = Math.floor(Math.random() * arr.length)
     result.push(arr[index])
-    // console.log(result)
+    arr.splice(index, 1)
+    console.log('--------------')
+    console.log('original',arr)
+    console.log('result',result.sort().join(""))
   }
-  // console.log(index)
   return result
 }
 
-// console.log(numberInArray([1,2,3,4,5,6]))
-console.log(numberInArray([6,9,9,0,2,3,1]))
+console.log(numberInArray([1,0,9,1,6,5,5,7,6,7,2,3])) 
+
+/*
+156679
+*/
